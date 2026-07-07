@@ -1,0 +1,9 @@
+services:
+  ocr_api:
+    build: .
+    container_name: medicine_ocr_api
+    ports:
+      - "8000:8000"
+    environment:
+      - AZURE_OCR_ENDPOINT=${AZURE_OCR_ENDPOINT}
+      - AZURE_OCR_KEY=${AZURE_OCR_KEY}
