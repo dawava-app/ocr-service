@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# Medicine OCR API
+Medicine OCR API
 
 Takes a medicine label image, runs Azure Computer Vision Read OCR, and returns
 one selected text result.
@@ -54,8 +53,10 @@ Response:
   "confidence": 0.96
 }
 ```
+
 =======
-#  Medicine Name OCR API
+
+# Medicine Name OCR API
 
 A **FastAPI-based Computer Vision API** for extracting **medicine names from images** using a hybrid pipeline combining **Image Processing, YOLO Object Detection, and EasyOCR**.
 
@@ -63,15 +64,15 @@ The system detects the **region containing the medicine name**, crops it, and th
 
 ---
 
-#  Features
+# Features
 
-- Image preprocessing for better OCR accuracy  
-- YOLO-based medicine name region detection  
-- Automatic bounding box cropping  
-- EasyOCR text extraction  
-- Clean modular FastAPI architecture  
-- Ready-to-use REST API  
-- Sample images for testing  
+- Image preprocessing for better OCR accuracy
+- YOLO-based medicine name region detection
+- Automatic bounding box cropping
+- EasyOCR text extraction
+- Clean modular FastAPI architecture
+- Ready-to-use REST API
+- Sample images for testing
 
 ---
 
@@ -94,10 +95,9 @@ Input Image	OCR Result
 
 ---
 
-#  System Architecture
+# System Architecture
 
 The application follows a **modular layered architecture** to keep the code scalable and maintainable.
-
 
 ```
 Client
@@ -119,7 +119,7 @@ OCR Pipeline
 
 ---
 
-#  OCR Pipeline
+# OCR Pipeline
 
 The system extracts medicine names through **four main stages**.
 
@@ -137,13 +137,11 @@ Benefits:
 
 Example kernel used:
 
-
 ```
 [ 0 -1 0
 -1 5 -1
 0 -1 0 ]
 ```
-
 
 ---
 
@@ -168,7 +166,6 @@ Example:
 The detected bounding box is used to **crop the medicine name area**.
 This step removes unnecessary background and improves OCR performance.
 
-
 ```
 Original Image
 │
@@ -179,17 +176,19 @@ Detected Bounding Box
 Cropped Region
 ```
 
-
 ---
 
 ## 4. OCR using EasyOCR
+
 Finally, **EasyOCR** extracts the text from the cropped region.
 
 ###Output includes:
+
 ```
 - Medicine name
 - Confidence score
 ```
+
 Example output:
 
 ```json
@@ -232,25 +231,31 @@ OCR_API/
 ├── requirement.txt
 └── readme.md
 ```
-#  Component Responsibilities: 
+
+# Component Responsibilities:
 
 ## Controllers
+
 Location:
 `app/controllers/`
 
 Responsibilities:
+
 ```
 - Handle API requests
 - Validate inputs
 - Call service layer
 ```
+
 Return API responses
 
 ## Services
+
 Location:
 `app/services/`
 
 Responsibilities:
+
 ```
 - Business logic
 - Connect controller with OCR pipeline
@@ -258,6 +263,7 @@ Responsibilities:
 ```
 
 ## Core
+
 Location:
 
 `app/core/`
@@ -279,6 +285,7 @@ EasyOCR
 ```
 
 ## Models
+
 Location:
 
 `app/models/`
@@ -288,6 +295,7 @@ Responsibilities:
 `Responsible for loading AI models.`
 
 ## Schemas
+
 Location:
 
 `app/schemas/`
@@ -297,6 +305,7 @@ Responsibilities:
 `Defines Pydantic models for request and response validation.`
 
 ## Utils
+
 Location:
 
 `app/utils/`
@@ -306,6 +315,7 @@ Responsibilities:
 `Helper functions used across the project.`
 
 Functions include:
+
 ```
 - Image loading
 - Image sharpening
@@ -313,11 +323,13 @@ Functions include:
 ```
 
 ## Config
+
 Location:
 `app/config.py`
 
 Responsibilities:
-``` 
+
+```
 Stores project configurations such as:
 - Model paths
 - Upload directories
@@ -325,11 +337,13 @@ Stores project configurations such as:
 ```
 
 ## FastAPI Entry Point
+
 Location:
 
 `app/main.py`
 
 Responsibilities:
+
 ```
 - Creating FastAPI app
 - Registering routes
@@ -337,47 +351,49 @@ Responsibilities:
 ```
 
 ### Installation :-
+
 1️. Clone Repository
 
-```git clone https://github.com/your-username/medicine-ocr-api.git```
+``git clone https://github.com/your-username/medicine-ocr-api.git``
 
-```cd medicine-ocr-api```
+``cd medicine-ocr-api``
 
 2️. Create Virtual Environment
 
-```python -m venv venv```
+``python -m venv venv``
 
-```Activate environment```
+``Activate environment``
 
-```venv\Scripts\activate```
+``venv\Scripts\activate``
 
 3️. Install Dependencies
 
-```pip install -r requirement.txt```
+``pip install -r requirement.txt``
 
 4️. Running the API
 
 Start the server:
 
-```uvicorn app.main:app --reload```
+``uvicorn app.main:app --reload``
 
 API will run at:
 
-```http://127.0.0.1:8000```
+``http://127.0.0.1:8000``
 
 Swagger UI:
 
-```http://127.0.0.1:8000/docs```
+``http://127.0.0.1:8000/docs``
 
 ReDoc:
 
-```http://127.0.0.1:8000/redoc```
+``http://127.0.0.1:8000/redoc``
 
 API Endpoint:
 
-```POST /ocr/ocr```
+``POST /ocr/ocr``
 
-Extract medicine name from an image: 
+Extract medicine name from an image:
+
 ```
 curl -X POST "http://127.0.0.1:8000/ocr" \
      -H "accept: application/json" \
@@ -390,9 +406,10 @@ Example Response
 ```
 
 ### Sample Images
+
 Example images for testing are provided in:
 
-```samples/```
+``samples/``
 
 ### Files:
 
@@ -403,6 +420,14 @@ m3.jpg
 ```
 
 ### Model:
+
 The repository includes a trained YOLO detection model:
 best.pt -> This model detects the region containing the medicine name in the image.
+
 >>>>>>> 8cf4df6bd2031e4c282704330e2d754150a5e0c5
+>>>>>>>
+>>>>>>
+>>>>>
+>>>>
+>>>
+>>
