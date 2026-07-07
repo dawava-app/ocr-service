@@ -1,21 +1,5 @@
 fastapi
-<<<<<<< HEAD
 uvicorn[standard]
 python-multipart
 requests
 python-dotenv
-=======
-uvicorn
-pydantic
-python-multipart
-opencv-python
-numpy
-pillow
-easyocr
-ultralytics
-torch
-torchvision
-pytesseract
-python-dotenv
-loguru
->>>>>>> 8cf4df6bd2031e4c282704330e2d754150a5e0c5
