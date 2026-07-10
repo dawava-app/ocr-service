@@ -17,6 +17,8 @@ class Settings:
         self.SCORE_WEIGHT = 0.7
         self.AREA_WEIGHT = 0.3
 
+        self.INTERNAL_SERVICE_TOKEN = os.getenv("INTERNAL_SERVICE_TOKEN")
+
         if not self.AZURE_OCR_ENDPOINT:
             raise ValueError("AZURE_OCR_ENDPOINT not found in .env")
 
