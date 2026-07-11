@@ -159,8 +159,9 @@ def match_medicine(image_path: str):
 
     if ranked_arabic:
         best = ranked_arabic[0]
-        text = _append_leading_number_text(best["text"], leading_number_text)
-        return text, best["language"], best["confidence"]
+        #text = _append_leading_number_text(best["text"], leading_number_text)
+        return best["text"], leading_number_text, best["language"], best["confidence"]
+
 
     english_candidates = [
         candidate
@@ -171,13 +172,13 @@ def match_medicine(image_path: str):
 
     if ranked_english:
         best = ranked_english[0]
-        text = _append_leading_number_text(best["text"], leading_number_text)
-        return text, best["language"], best["confidence"]
+        #text = _append_leading_number_text(best["text"], leading_number_text)
+        return best["text"], leading_number_text, best["language"], best["confidence"]
 
     ranked_any = _rank_candidates(candidates)
     if ranked_any:
         best = ranked_any[0]
-        text = _append_leading_number_text(best["text"], leading_number_text)
-        return text, best["language"], best["confidence"]
+        #text = _append_leading_number_text(best["text"], leading_number_text)
+        return best["text"], leading_number_text, best["language"], best["confidence"]
 
-    return None, None, None
+    return None, None, None, None

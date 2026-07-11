@@ -34,10 +34,11 @@ async def predict(request: OCRRequest):
             f.write(response.content)
 
         # OCR
-        text, lang, confidence = match_medicine(temp_path)
+        text, dose, lang, confidence = match_medicine(temp_path)
 
         return OCRResponse(
             text=text,
+            dose=dose,
             language=lang,
             confidence=confidence,
         )

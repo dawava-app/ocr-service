@@ -7,5 +7,6 @@ class OCRRequest(BaseModel):
 
 class OCRResponse(BaseModel):
     text: Optional[str]
+    dose: Optional[str]
     language: Optional[str]
     confidence: Optional[float]
