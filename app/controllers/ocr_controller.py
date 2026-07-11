@@ -8,9 +8,10 @@ from app.schemas.ocr_schema import OCRResponse, OCRRequest
 from app.utils.file_utils import get_temp_path, remove_file
 from app.utils.image_utils import save_upload
 from fastapi import APIRouter, HTTPException
+import logging
 
 router = APIRouter()
-
+logger = logging.getLogger(__name__)
 
 @router.post("/ocr", response_model=OCRResponse)
 async def predict(request: OCRRequest):
@@ -33,8 +34,12 @@ async def predict(request: OCRRequest):
         with open(temp_path, "wb") as f:
             f.write(response.content)
 
+        logger.info(f"Successfully Saved Image in temp path={temp_path}")
+
         # OCR
         text, lang, confidence = match_medicine(temp_path)
+
+        logger.info(f"OCR result: {text}, {lang}, {confidence}")
 
         return OCRResponse(
             text=text,
